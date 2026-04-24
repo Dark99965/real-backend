@@ -1,10 +1,5 @@
-from flask import Flask
+import sqlite3
 
-app = Flask(__name__)
+conn = sqlite3.connect("app.db")
+cursor = conn.cursor()
 
-@app.route('/')
-def home():
-    return open("./index.html", "r").read()
-
-if __name__ == '__main__':
-    app.run(debug=True)
