@@ -1,6 +1,6 @@
 # imports
 
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
 
 # Flask app
 
@@ -11,6 +11,12 @@ app = Flask(__name__)
 @app.route("/")
 def home():
     return render_template("home.html")
+
+# api route
+
+@app.route('/api')
+def api():
+    return jsonify({ "msg": "Hello, world"})
 
 # debuging stuff
 
