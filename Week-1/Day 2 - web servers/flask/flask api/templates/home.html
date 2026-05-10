@@ -7,6 +7,28 @@
   </head>
   <body>
     <h1>Hello, worls!</h1>
-    <p>This is the home page</p>
+    <p>
+      Hello, im gona test my <strong>API</strong>. just click the button to see
+      the output
+    </p>
+    <button onclick="clicked()">Click me!</button>
+    <div id="output"></div>
+    <script>
+      // output div
+
+      let output = document.getElementById("output");
+
+      // clicked function
+
+      function clicked() {
+        fetch("http://localhost:5000/api")
+          .then((res) => {
+            if (!res.ok)
+              throw new Error(`somthig went wrong, status code: ${res.status}`);
+            return res.json();
+          })
+          .then((json) => (output.textContent = json.msg));
+      }
+    </script>
   </body>
 </html>

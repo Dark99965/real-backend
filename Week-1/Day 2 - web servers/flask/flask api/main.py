@@ -1,6 +1,6 @@
 # imports
 
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, make_response
 
 # Flask app
 
@@ -16,7 +16,9 @@ def home():
 
 @app.route('/api')
 def api():
-    return jsonify({ "msg": "Hello, world"})
+    resp = make_response(jsonify({"msg": "Hello, world!"}))
+    resp.access_control_allow_origin = '*'
+    return resp
 
 # debuging stuff
 
