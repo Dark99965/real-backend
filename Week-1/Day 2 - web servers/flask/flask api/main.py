@@ -17,7 +17,7 @@ def home():
 @app.route('/api')
 def api():
     resp = make_response(jsonify({"msg": "Hello, world!"}))
-    resp.access_control_allow_origin = '*'
+    resp.access_control_allow_origin = 'http://localhost:5000/'
     return resp
 
 # debuging stuff
