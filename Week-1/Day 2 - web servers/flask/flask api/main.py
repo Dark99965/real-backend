@@ -1,10 +1,17 @@
 # imports
 
 from flask import Flask, render_template, jsonify, make_response
+from flask_sqlalchemy import SQLAlchemy
 
 # Flask app
 
 app = Flask(__name__)
+
+# data base
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite3:///app.db'
+
+db = SQLAlchemy(app)
 
 # home route
 
