@@ -9,9 +9,12 @@ app = Flask(__name__)
 
 # data base
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite3:///app.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite3'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
+
+# TODO: make usr module
 
 # home route
 
